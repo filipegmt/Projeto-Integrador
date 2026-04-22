@@ -60,3 +60,6 @@ A arquitetura do projeto divide-se em quatro pilares fundamentais:
    ```bash
    git clone https://github.com/filipegmt/Projeto-Integrador.git
    ```
+
+
+<!-- Fix #13 -->
