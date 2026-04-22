@@ -10,7 +10,7 @@ ficheiros_cidades = [
     'dados_faro.html'
 ]
 
-conexao = sqlite3.connect('restaurantes.db')
+conexao = sqlite3.connect('app_reservas.db')
 cursor = conexao.cursor()
 
 cursor.execute('''

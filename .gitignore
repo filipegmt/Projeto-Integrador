@@ -1,3 +1,4 @@
 *.html
 __pycache__/
 Entregas/
+n8n-data/

@@ -42,7 +42,7 @@ sequenceDiagram
     participant Chat as Interface de Chat
     participant n8n as Workflow n8n
     participant LLM as Modelo de Linguagem
-    participant DB as SQLite (restaurantes.db)
+    participant DB as SQLite (app_reservas.db)
 
     Utilizador->>Chat: "Quero um italiano no Porto"
     Chat->>n8n: Envia mensagem (Webhook)
@@ -63,17 +63,34 @@ sequenceDiagram
 
 ### 3. Modelo Lógico de Dados (ERD)
 
-Estrutura da informação guardada após a extração com o Python.
+Estrutura da base de dados.
 
 ```mermaid
 erDiagram
+    UTILIZADORES ||--o{ RESERVAS : "faz"
+    RESTAURANTES ||--o{ RESERVAS : "recebe"
+
+    UTILIZADORES {
+        INTEGER id PK
+        TEXT nome
+        TEXT email
+        TEXT password
+    }
+
     RESTAURANTES {
-        INTEGER id PK "Auto-incremento"
-        TEXT nome "Único, ex: Madpizza Alvalade"
-        TEXT morada "Ex: Av. de Roma 51"
-        TEXT cidade "Ex: Lisboa"
-        TEXT preco "Ex: €€"
-        TEXT avaliacao "Ex: 9.3"
-        TEXT cozinhas "Ex: Italian, Pizzeria"
+        INTEGER id PK
+        TEXT nome
+        TEXT cidade
+        TEXT cozinhas
+    }
+
+    RESERVAS {
+        INTEGER id PK
+        INTEGER user_id FK
+        INTEGER restaurante_id FK
+        TEXT data
+        TEXT hora
+        INTEGER num_pessoas
+        TEXT status
     }
 ```

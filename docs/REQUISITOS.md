@@ -25,6 +25,11 @@ O objetivo deste projeto é desenvolver um assistente virtual inteligente capaz 
 - **US07:** Como utilizador, quero confirmar todos os detalhes (Nome, Data, Hora, Pessoas e Restaurante) através de um resumo antes da conclusão da reserva, para evitar erros.
 - **US08:** Como utilizador, quero receber uma confirmação clara de sucesso após a efetivação da reserva simulada.
 
+### Autenticação e Histórico de Reservas
+
+- **US09:** Como utilizador, quero autenticar-me na plataforma para que as minhas preferências e reservas fiquem guardadas de forma segura.
+- **US10:** Como utilizador, quero consultar a lista das minhas reservas efetuadas para gerir os meus planos gastronómicos.
+
 ---
 
 ## 3. Casos de Uso (Use Cases)
@@ -33,7 +38,7 @@ O objetivo deste projeto é desenvolver um assistente virtual inteligente capaz 
 
 1. O utilizador envia uma mensagem natural com um pedido de recomendação.
 2. O Agente de IA interpreta a intenção e os parâmetros (cidade, tipo de comida).
-3. O sistema executa uma consulta SQL à base de dados `restaurantes.db`.
+3. O sistema executa uma consulta SQL à base de dados `app_reservas.db`.
 4. O sistema processa os dados e devolve as melhores opções, acompanhadas de uma breve justificação sobre o motivo da escolha.
 
 ### UC02 - Simulação Segura de Reserva
@@ -61,6 +66,8 @@ O objetivo deste projeto é desenvolver um assistente virtual inteligente capaz 
 - **RF03:** O sistema tem de devolver informações estruturadas (Nome, Morada, Preço, Avaliação e Cozinhas) ao utilizador.
 - **RF04:** O sistema tem de solicitar uma confirmação explícita do utilizador antes de processar qualquer intenção de reserva.
 - **RF05:** O sistema tem de manter o contexto da conversa para permitir pedidos de reserva sequenciais sem repetição de informações.
+- **RF06:** O sistema deve validar as credenciais do utilizador antes de permitir o acesso ao histórico de reservas.
+- **RF07:** O sistema deve associar automaticamente cada nova reserva ao ID do utilizador autenticado.
 
 ### Requisitos Não Funcionais (RNF)
 
