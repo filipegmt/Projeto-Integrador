@@ -1,4 +1,7 @@
+*.db
+*.sqlite3
 *.html
 __pycache__/
 Entregas/
 n8n-data/
+GEMINI.md
